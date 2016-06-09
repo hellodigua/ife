@@ -1,0 +1,44 @@
+header{
+  height: 60px;
+  background: #fff;
+  z-index: 1;
+}
+
+header .container{
+  margin: 0 50px;
+  max-width: 100%;
+}
+
+header img{
+  height: 60px;
+}
+
+
+header nav li{
+  float: left;
+  margin: 0 5px;
+  padding: 0 10px;
+}
+
+header nav li a{
+  line-height: 60px;
+  font-size: 1.1em;
+}
+
+#banner{
+  height: 100%;
+}
+
+#banner .backimg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-image: url("../image/t72.png");
+  background-size: cover;
+  z-index: -5;
+}
+
+#info{
+
+}

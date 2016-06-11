@@ -5,7 +5,7 @@ h1,h2,h3,h4,h5,h6{font-size: 100%;}
 ul {list-style: none;}
 a,a:hover,a:link,a:visited {text-decoration: none;}
 /*reset css base*/
-section{width: 80%; margin: 50px auto;}
+section{width: 80%; margin: 0 auto 60px;}
 section h1{font-size: 2em; text-align: center;}
 section .box{position:relative; display: table; margin: 20px auto;}
 

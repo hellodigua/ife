@@ -34,7 +34,7 @@ window.mobileUtil = (function(win, doc) {
 		tapEvent: isMobile ? 'tap' : 'click',
 
 		/**
-		 * 缩放页面
+		 * 缩放页面，动态调整rem
 		 */
 		fixScreen: function() {
             var metaEl = doc.querySelector('meta[name="viewport"]'),

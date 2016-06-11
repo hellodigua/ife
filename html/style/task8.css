@@ -1,13 +1,7 @@
-.container{
-  max-width: 80%;
-  margin: 0 auto;
-}
+.container{max-width: 80%; margin: 0 auto; }
 
-.row{
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+.row{ width: 100%; margin-top: 20px; margin-bottom: 20px; }
+.row:before, .row:after{display: block;clear: both;content: '';}
 
 [class*='col-']{
   float: left;

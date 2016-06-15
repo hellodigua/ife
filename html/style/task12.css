@@ -20,14 +20,16 @@ section .box{position:relative; display: table; margin: 20px auto;}
 .task2 input:focus {width: 400px; }
 
 .task3 .wrap{position: relative; width: 300px; height: 100px; overflow: hidden;}
-.task3 .wrap .banner{width: 900px; height: 100px; animation: loop-play 5s linear infinite;}
-.task3 .wrap .banner li{float:left; width: 300px; height: 100px; transition: .3s;}
-.task3 .wrap .banner #green{background: green;}
-.task3 .wrap .banner #blue{background: blue;}
+.task3 .wrap .banner{display:flex; width: 900px; height: 100px; animation: loop-pla y 10s linear infinite;}
+.task3 .wrap .banner li{float:left; width: 300px; height: 100px; transition: 1s ease;}
 .task3 .wrap .banner #red{background: red;}
+.task3 .wrap .banner #blue{background: blue;}
+.task3 .wrap .banner #green{background: green;}
 .task3 .hov{position: absolute; bottom: 0; right: 0; display: flex; z-index: 9;}
 .task3 .hov .h{ width: 20px; height: 20px; background: rgba(33,33,33,0.3); color: #fff; cursor: pointer; text-align: center;}
-
+#red:target {margin-left: 0;}
+#blue:target {margin-left: -300px;}
+#green:target {margin-left: -600px;}
 
 @keyframes loop-play {
   0% {margin-left: 0; }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务二十二：JavaScript和树（一）</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .wai {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #000;
+        margin: 5px;
+        padding: 15px 10px;
+        width: 730px;
+        height: 240px;
+        background-color: #FFFFFF;
+        margin-top: 100px;
+        margin-left: 100px;
+    }
+
+    .zhong {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #000;
+        margin: 5px;
+        padding: 15px 10px;
+        width: 350px;
+        height: 200px;
+        background-color: #FFFFFF;
+    }
+
+    .nei {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #000;
+        margin: 5px;
+        padding: 15px 10px;
+        width: 150px;
+        height: 160px;
+        background-color: #FFFFFF;
+    }
+
+    .zuinei {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #000;
+        margin: 5px;
+        padding: 15px 10px;
+        width: 70px;
+        height: 120px;
+        background-color: #FFFFFF;
+    }
+    input[type="button"] {
+        margin-left: 100px;
+        width: 100px;
+        height: 60px;
+        font-size: 24px;
+    }
+</style>
+<script>
+    var str=['wai','zhong','nei','zuinei'];
+    window.onload=function()
+    {
+        var style1=document.getElementById('btn1');
+        var style2=document.getElementById('btn2');
+        function fun1(str,str1)
+        {
+            for(var i=0;i<document.getElementsByClassName(str).length;i++)
+            {
+                document.getElementsByClassName(str)[i].style.backgroundColor=str1;
+            }
+        }
+
+        var i=0;
+        style2.onclick=function()
+        {
+            var timer=function start()
+            {
+                fun1(str[i],'green');
+
+                if(i!=0)
+                {
+                    var j=i-1;
+                    fun1(str[j],'');
+                }
+                i++;
+            };
+            setInterval(timer,1000);
+
+        };
+        var i1=3;
+        style1.onclick=function()
+        {
+            var timer=function start()
+            {
+                fun1(str[i1],'red');
+
+                if(i1!=3)
+                {
+                    var j=i1+1;
+                    fun1(str[j],'');
+                }
+                i1--;
+            };
+            setInterval(timer,1000);
+
+        }
+    }
+</script>
+<body>
+<div class="wai">
+
+    <div class="zhong">
+        <div class="nei">
+            <div class="zuinei" id="one"></div>
+            <div class="zuinei"></div>
+        </div>
+
+        <div class="nei">
+            <div class="zuinei"></div>
+            <div class="zuinei"></div>
+        </div>
+
+    </div>
+
+    <div class="zhong">
+
+        <div class="nei">
+            <div class="zuinei"></div>
+            <div class="zuinei"></div>
+        </div>
+
+        <div class="nei">
+            <div class="zuinei"></div>
+            <div class="zuinei"></div>
+        </div>
+
+    </div>
+
+</div>
+<input type="button" value="由内向外" id="btn1">
+<input type="button" value="由外向内" id="btn2">
+</body>
+</html>

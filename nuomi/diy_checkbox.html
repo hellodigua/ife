@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+  .item{
+    margin: 30px 200px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #ccc;
+    font-weight: bold;
+  }
+  .item input{
+    display: none;
+  }
+  .checkbox+label, .radios+label{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+  }
+  .checkbox:checked+label, .radios:checked+label{
+    border: 1px solid red;
+  }
+  .checkbox:checked+label::after, .radios:checked+label::after{
+    margin: auto;
+    content: '√';
+    color: red;
+  }
+
+  .item .radios+label{
+    margin: 20px 0;
+  }
+
+  .radios+label{
+    border-radius: 50%;
+  }
+  .radios:checked+label::after{
+    border-radius: 50%;
+    width:8px;
+    height:8px;
+    line-height: 8px;
+    content: ' ';
+    background: #d73d32;
+  }
+
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="item">
+    <input type="checkbox" name="" id="checkbox" class="checkbox">
+    <label for="checkbox"></label>
+</div>
+
+<div class="item">
+    <input type="radio" name="sex"  id="radioBox" class="radios">
+    <label for="radioBox"></label>
+    <input type="radio" name="sex"  id="radioBox1" class="radios">
+    <label for="radioBox1"></label>
+</div>
+</body>
+</html>

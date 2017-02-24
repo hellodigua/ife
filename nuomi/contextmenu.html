@@ -41,12 +41,19 @@
 </menu>
 
 <menu type="context" class="menu" id='menu2'>
-    <menuitem>这个菜单</menuitem>
+    <menuitem onclick="alert(1)">这个菜单</menuitem>
     <menuitem>绑定到了document上</menuitem>
     <menuitem>共享2</menuitem>
 </menu>
 
 <script type="text/javascript">
+window.addEventListener('click', function () {
+  var menu = document.getElementsByTagName('menu');
+  for(var i = 0, l = menu.length; i< l; i++){
+    menu[i].style.display="none";
+  }
+}, false);
+
 document.oncontextmenu = function (e) {
   var menu2 = document.getElementById('menu2');
   window.event.returnValue=false;

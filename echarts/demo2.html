@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts NO.2 - 实现自定义的统计图表</title>
+  <style type="text/css">
+    #main{
+      height: 600px;
+      width: 600px;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<div id="main"></div>
+
+<script type="text/javascript" src="script/echarts.min.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+  var option = {
+    backgroundColor: '#d7e4eb',
+    title: {
+      text: "What's my credit score?",
+      subtext: "Puerto Rico, % decrease on a year earlier",
+      textStyle: {
+        color: '#000',
+        fontSize: 28
+      },
+      subtextStyle: {
+        color: '#000',
+        fontSize: 22
+      },
+      top: 10,
+      left: 50
+    },
+    legend: {
+        data: ['Population', 'GDP'],
+        top: 90,
+        left: 50,
+        width: 'auto',
+        textStyle: {
+          fontSize: 20
+        }
+    },
+    grid: {
+      top: 150
+    },
+    tooltip: {
+
+    },
+    yAxis: {
+      type: 'value',
+      inverse: true,
+      data: [0, 1, 2, 3, 4],
+      axisLine: {
+        show: false
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007],
+      position: 'bottom',
+      nameLocation: 'middle',
+      axisLine: {
+        onZero: true,
+        lineStyle: {
+          color: '#ed5f5f',
+          width: 2
+        }
+      },
+      nameTextStyle: {
+        color: '#000'
+      }
+    },
+    series: [
+      {
+        name: 'Population',
+        type:'bar',
+        data:[400, 200, 1788, 1212, 700, 1898, 160, 222],
+        itemStyle: {
+          normal: {
+            color: '#33748a'
+          }
+        }
+      },
+      {
+        name: 'GDP',
+        type:'bar',
+        data:[100, 1000, 788, 1495, 1259, 898, 1655, 566],
+        itemStyle: {
+          normal: {
+            color: '#33b6e3'
+          }
+        }
+      }
+    ]
+  };
+
+  myChart.setOption(option);
+
+</script>
+</body>
+</html>

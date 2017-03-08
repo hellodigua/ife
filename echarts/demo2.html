@@ -54,24 +54,42 @@
       data: [0, 1, 2, 3, 4],
       axisLine: {
         show: false
-      }
-    },
-    xAxis: {
-      type: 'category',
-      data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007],
-      position: 'bottom',
-      nameLocation: 'middle',
-      axisLine: {
-        onZero: true,
+      },
+      splitLine: {
         lineStyle: {
-          color: '#ed5f5f',
+          color: ['#fff'],
           width: 2
         }
       },
-      nameTextStyle: {
-        color: '#000'
+      position: 'right'
+    },
+    xAxis: [{
+      type: 'category',
+      data: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007],
+      nameLocation: 'middle',
+      axisLabel: {
+        textStyle: {
+          color: '#000',
+          fontSize: 14
+        }
+      },
+      axisLine: {
+        onZero: false,
+        lineStyle: {
+          color: '#000',
+          width: 2
+        }
       }
     },
+    {
+      axisLine: {
+        lineStyle: {
+          color: 'red',
+          width: 3
+        }
+      }
+    }
+    ],
     series: [
       {
         name: 'Population',

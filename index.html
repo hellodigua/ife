@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <base target="_blank" />
   <title>地瓜的百度ife学习清单</title>
   <link rel="stylesheet" type="text/css" href="static/materialize.min.css">
   <style type="text/css">
@@ -17,8 +18,13 @@
       margin: 20px 0;
     }
 
-    #content .item{
-      min-height: 600px;
+    #content .collection-item .del{
+      text-decoration: line-through;
+      color: #ccc;
+    }
+
+    #content .collection-item .del::after{
+      content: "（未完成）";
     }
   </style>
 </head>
@@ -33,33 +39,24 @@
     <div class="col s4">
       <ul class="collection with-header">
           <li class="collection-header"><h4>HTML & CSS</h4></li>
-          <li class="collection-item"><a href="html/task1.html" target="_blank">任务一：零基础HTML编码</a></li>
-          <li class="collection-item"><a href="html/task2.html" target="_blank">任务二：零基础HTML及CSS编码（一）</a></li>
-          <li class="collection-item"><a href="html/task3.html" target="_blank">任务三：三栏式布局</a></li>
-          <li class="collection-item"><a href="html/task4.html" target="_blank">任务四：定位和居中问题</a></li>
-          <li class="collection-item"><a href="html/task5.html" target="_blank">任务五：零基础HTML及CSS编码（二）</a></li>
-          <li class="collection-item"><a href="html/task6.html" target="_blank">任务六：通过HTML及CSS模拟报纸排版</a></li>
-          <li class="collection-item"><a href="html/task7.html" target="_blank">任务七：实现常见的技术产品官网的页面架构及样式布局</a></li>
-          <li class="collection-item"><a href="html/task8.html" target="_blank">任务八：响应式网格（栅格化）布局</a></li>
-          <li class="collection-item"><a href="html/task9.html" target="_blank">任务九：使用HTML/CSS实现一个复杂页面</a></li>
-          <li class="collection-item"><a href="html/task10.html" target="_blank">任务十：Flexbox 布局练习</a></li>
-          <li class="collection-item"><a href="html/task11.html" target="_blank">任务十一：移动Web页面布局实践</a></li>
-          <li class="collection-item"><a href="html/task12.html" target="_blank">任务十二：学习CSS 3的新特性</a></li>
+          <li class="collection-item"><a href="html/task1.html">任务一：零基础HTML编码</a></li>
+          <li class="collection-item"><a href="html/task2.html">任务二：零基础HTML及CSS编码（一）</a></li>
+          <li class="collection-item"><a href="html/task3.html">任务三：三栏式布局</a></li>
+          <li class="collection-item"><a href="html/task4.html">任务四：定位和居中问题</a></li>
+          <li class="collection-item"><a href="html/task5.html">任务五：零基础HTML及CSS编码（二）</a></li>
+          <li class="collection-item"><a href="html/task6.html">任务六：通过HTML及CSS模拟报纸排版</a></li>
+          <li class="collection-item"><a href="html/task7.html" class="del">任务七：实现常见的技术产品官网的页面架构及样式布局</a></li>
+          <li class="collection-item"><a href="html/task8.html">任务八：响应式网格（栅格化）布局</a></li>
+          <li class="collection-item"><a href="html/task9.html">任务九：使用HTML/CSS实现一个复杂页面</a></li>
+          <li class="collection-item"><a href="html/task10.html">任务十：Flexbox 布局练习</a></li>
+          <li class="collection-item"><a href="html/task11.html">任务十一：移动Web页面布局实践</a></li>
+          <li class="collection-item"><a href="html/task12.html">任务十二：学习CSS 3的新特性</a></li>
       </ul>
     </div>
     <div class="col s4">
       <ul class="collection with-header">
         <li class="collection-header"><h4>Javascript基础</h4></li>
-        <li class="collection-item"><a href="javascript/task13.html">任务十三：零基础JavaScript编码（一）</a></li>
-        <li class="collection-item"><a href="javascript/task14.html">任务十四：零基础JavaScript编码（二）</a></li>
-        <li class="collection-item"><a href="javascript/task15.html">任务十五：零基础JavaScript编码（三）</a></li>
-        <li class="collection-item"><a href="javascript/task16.html">任务十六：零基础JavaScript编码（四）</a></li>
-        <li class="collection-item"><a href="javascript/task17.html">任务十七：零基础JavaScript编码（五）</a></li>
-        <li class="collection-item"><a href="javascript/task18.html">任务十八：基础JavaScript练习（一）</a></li>
-        <li class="collection-item"><a href="javascript/task19.html">任务十九：基础JavaScript练习（二）</a></li>
-        <li class="collection-item"><a href="javascript/task20.html">任务二十：基础JavaScript练习（三）</a></li>
-        <li class="collection-item"><a href="javascript/task21.html">任务二十一：基础JavaScript练习（四）</a></li>
-        <li class="collection-item"><a href="javascript/task22.html">任务二十二：JavaScript和树（一）</a></li>
+        <li class="collection-item"><a href="javascript/task1.html">任务一：零基础JavaScript编码（一）</a></li>
       </ul>
     </div>
     <div class="col s4">

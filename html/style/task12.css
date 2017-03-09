@@ -1,0 +1,45 @@
+html,body {height: 100%;width: 100%;}
+body,blockquote,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,figure,ul {margin: 0;padding: 0;}
+body,button,input,select,textarea {font-family: 'Lato','Segoe UI','Microsoft JhengHei','Microsoft YaHei',sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size: 100%;}
+ul {list-style: none;}
+a,a:hover,a:link,a:visited {text-decoration: none;}
+/*reset css base*/
+section{width: 80%; margin: 0 auto 60px;}
+section h1{font-size: 2em; text-align: center;}
+section .box{position:relative; display: table; margin: 20px auto;}
+
+
+.task1 table{border: 1px solid #ccc;}
+.task1 table tr th{border: 1px solid #ddd; background: #000; color: #fff;}
+.task1 table tr td{border: 1px solid #ddd; }
+.task1 table tr[class="red"] td{color: red;}
+.task1 table tr:nth-child(2n+1){ background: #ccc; }
+
+.task2 input{width: 200px; height:30px; outline: none; transition: .3s;}
+.task2 input:focus {width: 400px; }
+
+.task3 .wrap{position: relative; width: 300px; height: 100px; overflow: hidden;}
+.task3 .wrap .banner{display:flex; width: 900px; height: 100px; animation: loop-pla y 10s linear infinite;}
+.task3 .wrap .banner li{float:left; width: 300px; height: 100px; transition: 1s ease;}
+.task3 .wrap .banner #red{background: red;}
+.task3 .wrap .banner #blue{background: blue;}
+.task3 .wrap .banner #green{background: green;}
+.task3 .hov{position: absolute; bottom: 0; right: 0; display: flex; z-index: 9;}
+.task3 .hov .h{ width: 20px; height: 20px; background: rgba(33,33,33,0.3); color: #fff; cursor: pointer; text-align: center;}
+#red:target {margin-left: 0;}
+#blue:target {margin-left: -300px;}
+#green:target {margin-left: -600px;}
+
+@keyframes loop-play {
+  0% {margin-left: 0; }
+  10% {margin-left: 0; }
+  15%{margin-left: -300px;}
+  35%{margin-left: -300px;}
+  40%{margin-left: -600px;}
+  60%{margin-left: -600px;}
+  65%{margin-left: -300px;}
+  85%{margin-left: -300px;}
+  90%{margin-left: 0;}
+  100% {margin-left: 0;}
+}

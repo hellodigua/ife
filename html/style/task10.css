@@ -1,0 +1,12 @@
+body{margin: 0;padding: 0;}
+.container{display: flex; flex-flow:row wrap;align-items:center; justify-content: space-between; }
+.box{width: 150px; margin: 20px 0; border: 1px solid #f00;}
+.item1{height: 120px;}
+.item2{height: 100px;}
+.item3{height: 40px;}
+.item4{height: 200px; border: 1px solid #0f0;}
+
+@media(max-width: 640px){
+  .container{ align-items: flex-start;  }
+  .item4{ order: -1; }
+}

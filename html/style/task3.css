@@ -1,0 +1,53 @@
+#gpanel{
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #555;
+  background-color: #eee;
+}
+
+.panel{
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #555;
+}
+
+#gpanel .groupname{
+  float: left;
+  width: 160px; 
+  margin-right: 20px;
+}
+
+#gpanel .groupname img{
+  width: 80px;
+  height: 80px;
+  border: 1px solid #aaa;
+  margin-right: 10px;
+}
+
+#gpanel .groupname h4{
+  float: right;
+}
+
+#gpanel .groupinfo{
+  margin: 0px 140px 0px 220px;
+}
+
+#gpanel .groupmember{
+  width: 80px;
+  float: right;
+}
+
+#gpanel .groupmember .member-list{
+
+}
+
+#gpanel .groupmember .member-item{
+  margin: 10px 0;
+}
+
+#gpanel .groupmember .member-item img{
+  width: 80px;
+  height: 80px;
+  border: 1px solid #aaa;
+}

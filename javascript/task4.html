@@ -25,17 +25,14 @@
 </head>
 <body>
 <div id="app">
-  <input type="text" name="text" id="ipt">
-  <button id="leftIn">左侧入</button>
   <button id="leftOut">左侧出</button>
+  <button id="leftIn">左侧入</button>
+  <input type="text" name="text" id="ipt">
   <button id="rightIn">右侧入</button>
   <button id="rightOut">右侧出</button>
 
   <ul id="content">
-    <li>2</li>
-    <li>3</li>
-    <li>11</li>
-    <li>5</li>
+
   </ul>
 </div>
 <script type="text/javascript">
@@ -43,12 +40,17 @@
   var result = document.getElementById("content");
   var inputn = document.getElementById("ipt");
 
-
-  // 获取数字
+  // 获取数字并生成节点
   function getVal() {
-    var val = document.getElementById("ipt").value;
-    var textnode=document.createTextNode(val);
-    return textnode;
+    if(inputn.value){
+      var newItem=document.createElement("LI");
+      var val = inputn.value;
+      newItem.innerHTML = val;
+      return newItem;
+    }else{
+      alert("请输入点什么");
+      return;
+    }
   }
 
   // 判断输入框内的字符是否为数字
@@ -57,35 +59,27 @@
   }
   
   function leftIn() {
-    if(inputn.value == ''){
-      alert("必须输入点啥啊");
-    }else{
-      var newItem=document.createElement("LI");
-      var node = getVal();
-      newItem.appendChild(node);
-      result.insertBefore(newItem, result.childNodes[0]);
-      inputn.value = '';
-    }
+    var node = getVal();
+    result.insertBefore(node, result.childNodes[0]);
+    inputn.value = '';
+    inputn.focus();
   }
 
   function rightIn() {
-    if(inputn.value == ''){
-      alert("必须输入点啥啊");
-    }else{
-      var newItem=document.createElement("LI");
-      var node = getVal();
-      newItem.appendChild(node);
-      result.appendChild(newItem, result.childNodes[0]);
-      inputn.value = '';
-    }
+    var node = getVal();
+    result.appendChild(node, result.childNodes[0]);
+    inputn.value = '';
+    inputn.focus();
   }
 
   function leftOut() {
-    result.removeChild(result.childNodes[0]);
+    var node = result.childNodes[0];
+    result.removeChild(node);
   }
 
   function rightOut() {
-    result.removeChild(result.lastChild);
+    var node = result.lastChild;
+    result.removeChild(node);
   }
 
   function init() {

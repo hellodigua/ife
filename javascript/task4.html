@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>任务四：基础JavaScript练习（一）</title>
+  <style type="text/css">
+    #app{
+      margin: 50px;
+    }
+
+    #content{
+      list-style: none;
+    }
+
+    #content li{
+      float: left;
+      height: 20px;
+      background-color: #65b2f5;
+      color: #fff;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <input type="text" name="text" id="ipt">
+  <button id="leftIn">左侧入</button>
+  <button id="leftOut">左侧出</button>
+  <button id="rightIn">右侧入</button>
+  <button id="rightOut">右侧出</button>
+
+  <ul id="content">
+    <li>2</li>
+    <li>3</li>
+    <li>11</li>
+    <li>5</li>
+  </ul>
+</div>
+<script type="text/javascript">
+
+  var result = document.getElementById("content");
+  var inputn = document.getElementById("ipt");
+
+
+  // 获取数字
+  function getVal() {
+    var val = document.getElementById("ipt").value;
+    var textnode=document.createTextNode(val);
+    return textnode;
+  }
+
+  // 判断输入框内的字符是否为数字
+  function isNum() {
+    inputn.value = inputn.value.replace(/[^\d]/ig,'');
+  }
+  
+  function leftIn() {
+    if(inputn.value == ''){
+      alert("必须输入点啥啊");
+    }else{
+      var newItem=document.createElement("LI");
+      var node = getVal();
+      newItem.appendChild(node);
+      result.insertBefore(newItem, result.childNodes[0]);
+      inputn.value = '';
+    }
+  }
+
+  function rightIn() {
+    if(inputn.value == ''){
+      alert("必须输入点啥啊");
+    }else{
+      var newItem=document.createElement("LI");
+      var node = getVal();
+      newItem.appendChild(node);
+      result.appendChild(newItem, result.childNodes[0]);
+      inputn.value = '';
+    }
+  }
+
+  function leftOut() {
+    result.removeChild(result.childNodes[0]);
+  }
+
+  function rightOut() {
+    result.removeChild(result.lastChild);
+  }
+
+  function init() {
+    document.getElementById('ipt').addEventListener("keyup", isNum);
+    document.getElementById('leftIn').addEventListener("click", leftIn);
+    document.getElementById('leftOut').addEventListener("click", leftOut);
+    document.getElementById('rightIn').addEventListener("click", rightIn);
+    document.getElementById('rightOut').addEventListener("click", rightOut);
+    content.addEventListener("click", function (e) {
+      if(e.target && e.target.nodeName == 'LI'){
+        content.removeChild(e.target);
+      }
+    });
+  }
+  init();
+</script>
+</body>
+</html>

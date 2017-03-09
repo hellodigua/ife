@@ -111,7 +111,13 @@
           }
         }
       }
-    ]
+    ],
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
   };
 
   myChart.setOption(option);

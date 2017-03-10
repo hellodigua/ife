@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS3饼状loading效果</title>
+  <style type="text/css">
+    #app{
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 100px;
+    }
+    .circle{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid red;
+      border-left: 5px solid transparent;
+    }
+
+    @-webkit-keyframes circleDoing{
+      from{
+        -webkit-transform: rotate(0);
+      }
+      to{
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes circleDoing1{
+      from{
+        -webkit-transform: rotate(30deg);
+      }
+      to{
+        -webkit-transform: rotate(390deg);
+      }
+    }
+
+    @-webkit-keyframes circleDoing2{
+      from{
+        -webkit-transform: rotate(30deg);
+      }
+      to{
+        -webkit-transform: rotate(390deg);
+      }
+    }
+
+    @-webkit-keyframes circleDoing3{
+      from{
+        -webkit-transform: rotate(30deg);
+      }
+      to{
+        -webkit-transform: rotate(390deg);
+      }
+    }
+
+    .item{
+      width: 100px;
+      height: 100px;
+      -webkit-animation: circleDoing .7s linear infinite;
+    }
+    .item2{
+      width: 120px;
+      height: 120px;
+      -webkit-animation: circleDoing1 .8s linear infinite;
+    }
+    .item3{
+      width: 140px;
+      height: 140px;
+      -webkit-animation: circleDoing2 .9s linear infinite;
+    }
+    .item4{
+      width: 160px;
+      height: 160px;
+      -webkit-animation: circleDoing3 1s linear infinite;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="circle item"></div>
+  <div class="circle item2"></div>
+  <div class="circle item3"></div>
+  <div class="circle item4"></div>
+</div>
+</body>
+</html>

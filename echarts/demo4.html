@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts No.4 - 可视化前的数据预处理</title>
+</head>
+<body>
+<div id="main"></div>
+<script type="text/javascript" src="script/jquery.min.js"></script>
+<script type="text/javascript" src="script/echarts.min.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+  myChart.showLoading();
+
+  $.get('data/kdata.json', function (kdata) {
+    myChart.hideLoading();
+    echarts.registerMap('kdata', kdata);
+
+    function formatterKdata(kdata) {
+      var categoryData = [];
+      var values = [];
+      var volumns = [];
+      var pattern = /(\d{4})(\d{2})(\d{2})/;
+      for(var i = 0, len = kdata.length; i < len; i++){
+        var a = kdata[i].Date;
+        var newDate = a.replace(pattern, '$1-$2-$3');
+        categoryData.push(newDate);
+        values.push([kdata[i].Open,kdata[i].Close,kdata[i].Low,kdata[i].High]);
+        volumns.push(kdata[i].Volume);
+      }
+      return {
+          categoryData: categoryData,
+          values: values,
+          volumns: volumns
+      };
+      // console.log(categoryData)
+    }
+
+    var kdata = formatterKdata(kdata);
+
+    categoryData = kdata.categoryData;
+    volumns = kdata.volumns;
+    values = kdata.values;
+
+    var option = {
+      backgroundColor: '#21202D',
+      legend: {
+
+      },
+      xAxis: {
+          type: 'category',
+          data: categoryData,
+          axisLine: { lineStyle: { color: '#8392A5' } }
+      },
+      yAxis: {
+          scale: true,
+          data: volumns,
+          axisLine: { lineStyle: { color: '#8392A5' } },
+          splitLine: { show: false }
+      },
+      series: [
+      {
+        type: 'line',
+        name: 'A',
+        data: ,
+        itemStyle: {
+            normal: {
+                color: '#FD1050',
+                color0: '#0CF49B',
+                borderColor: '#FD1050',
+                borderColor0: '#0CF49B'
+            }
+        }
+      }
+
+      ]
+    };
+
+    myChart.setOption(option);
+  });
+
+</script>
+</body>
+</html>

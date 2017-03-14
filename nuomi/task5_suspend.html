@@ -32,14 +32,9 @@
       margin: 10% 10%;
       padding: 5% 0;
       opacity: 0;
-      color: #fff;
       transition: all .3s;
     }
 
-    #main #content p{
-      text-align: center;
-      font-size: 30px;
-    }
 
     #main:hover #content{
       opacity: 1;
@@ -89,17 +84,37 @@
       visibility: visible;
     }
 
+    #main #content p{
+      text-align: center;
+      font-size: 30px;
+    }
 
+    #main #content .teji{
+      background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      background-size: 200% 100%;
+      animation: streamer 5s infinite linear;
+    }
 
-
+    @keyframes streamer {
+        0%  {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
   </style>
 </head>
 <body>
 <div id="main">
   <div class="bg"></div>
   <div id="content">
-    <p>我们度过的每一个平凡无奇的日常</p>
-    <p>也许就是连续发生的奇迹</p>
+    <p class="teji">我们度过的每一个平凡无奇的日常</p>
+    <p class="teji">也许就是连续发生的奇迹</p>
   </div>
 </div>
 </body>

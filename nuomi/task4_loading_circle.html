@@ -10,13 +10,16 @@
       height: 300px;
       margin: 100px;
     }
-    .circle{
+    .center{
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
       margin: auto;
+    }
+
+    .circle{
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -24,70 +27,134 @@
       border-left: 5px solid transparent;
     }
 
-    @-webkit-keyframes circleDoing{
-      from{
-        -webkit-transform: rotate(0);
-      }
-      to{
-        -webkit-transform: rotate(360deg);
-      }
-    }
-
-    @-webkit-keyframes circleDoing1{
-      from{
-        -webkit-transform: rotate(30deg);
-      }
-      to{
-        -webkit-transform: rotate(390deg);
-      }
-    }
-
-    @-webkit-keyframes circleDoing2{
-      from{
-        -webkit-transform: rotate(30deg);
-      }
-      to{
-        -webkit-transform: rotate(390deg);
-      }
-    }
-
-    @-webkit-keyframes circleDoing3{
-      from{
-        -webkit-transform: rotate(30deg);
-      }
-      to{
-        -webkit-transform: rotate(390deg);
-      }
-    }
-
     .item{
       width: 100px;
       height: 100px;
-      -webkit-animation: circleDoing .7s linear infinite;
+      animation: circleDoing .7s linear infinite;
     }
-    .item2{
+/*    .item2{
       width: 120px;
       height: 120px;
-      -webkit-animation: circleDoing1 .8s linear infinite;
+      animation: circleDoing1 .8s linear infinite;
     }
     .item3{
       width: 140px;
       height: 140px;
-      -webkit-animation: circleDoing2 .9s linear infinite;
+      animation: circleDoing2 .9s linear infinite;
     }
     .item4{
       width: 160px;
       height: 160px;
-      -webkit-animation: circleDoing3 1s linear infinite;
+      animation: circleDoing3 1s linear infinite;
+    }*/
+
+    @keyframes circleDoing{
+      from{
+        transform: rotate(0);
+      }
+      to{
+        transform: rotate(360deg);
+      }
     }
+
+/*    @keyframes circleDoing1{
+      from{
+        transform: rotate(30deg);
+      }
+      to{
+        transform: rotate(390deg);
+      }
+    }
+
+    @keyframes circleDoing2{
+      from{
+        transform: rotate(30deg);
+      }
+      to{
+        transform: rotate(390deg);
+      }
+    }
+
+    @keyframes circleDoing3{
+      from{
+        transform: rotate(30deg);
+      }
+      to{
+        transform: rotate(390deg);
+      }
+    }*/
+
+    .yuan{
+      margin: auto;
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border: 45px solid red;
+      border-top-color: green;
+      border-left-color: green;
+    }
+
+    .yuanleft{
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border: 45px solid green;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      z-index: 3;
+      animation: yuanleftDo 3s linear infinite;
+
+    }
+
+    .yuanright{
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border: 45px solid red;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      z-index: 2;
+      animation: yuanrightDo 3s linear infinite;
+    }
+
+    @keyframes yuanleftDo{
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        transform: rotate(180deg);
+      }
+      50%{
+        transform: rotate(180deg);
+        z-index: 3;
+      }
+      75%{
+        transform: rotate(360deg);
+        z-index: 3;
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes yuanrightDo{
+
+    }
+
+
   </style>
 </head>
 <body>
 <div id="app">
-  <div class="circle item"></div>
-  <div class="circle item2"></div>
-  <div class="circle item3"></div>
-  <div class="circle item4"></div>
+  <div class="bg">
+    <div class="yuan center"></div>
+    <div class="yuanleft center"></div>
+    <div class="yuanright center"></div>
+  </div>
+  <div class="circle center item"></div>
+ <!--  <div class="circle center item2"></div>
+  <div class="circle center item3"></div>
+  <div class="circle center item4"></div> -->
 </div>
 </body>
 </html>

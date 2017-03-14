@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>有趣的鼠标悬浮模糊效果</title>
+  <style type="text/css">
+    #main{
+      position: relative;
+      width: 600px;
+      height: 400px;
+      margin: 100px;
+    }
+
+    #main .bg{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url(static/task5.jpg) no-repeat center;
+      background-size: cover;
+      transition: all .3s;
+    }
+
+    #main:hover .bg{
+      filter: blur(3px);
+
+    }
+
+    #main #content{
+      position: absolute;
+      width: 80%;
+      height: 50%;
+      margin: 10% 10%;
+      padding: 5% 0;
+      opacity: 0;
+      color: #fff;
+      transition: all .3s;
+    }
+
+    #main #content p{
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #main:hover #content{
+      opacity: 1;
+    }
+
+    /*思路：实现一个宽/高为0的边框，在hover的时候将宽/高变为100%*/
+    #main #content::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 0;
+      border: 3px solid #fff;
+      border-width: 0 3px;
+      overflow: hidden;
+      visibility: hidden;
+      box-sizing: border-box;
+      transition: all .4s;
+    }
+
+    #main #content::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 100%;
+      border: 3px solid #fff;
+      border-width: 3px 0;
+      overflow: hidden;
+      visibility: hidden;
+      box-sizing: border-box;
+      transition: all .4s;
+
+    }
+
+    #main:hover #content::before {
+      top: 0;
+      height: 100%;
+      visibility: visible;
+    }
+
+    #main:hover #content::after{
+      left: 0;
+      width: 100%;
+      visibility: visible;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+<div id="main">
+  <div class="bg"></div>
+  <div id="content">
+    <p>我们度过的每一个平凡无奇的日常</p>
+    <p>也许就是连续发生的奇迹</p>
+  </div>
+</div>
+</body>
+</html>

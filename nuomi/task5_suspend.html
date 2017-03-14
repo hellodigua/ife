@@ -48,12 +48,12 @@
       top: 50%;
       width: 100%;
       height: 0;
-      border: 3px solid #fff;
-      border-width: 0 3px;
+      border: 2px solid #fff;
+      border-width: 0 2px;
       overflow: hidden;
       visibility: hidden;
       box-sizing: border-box;
-      transition: all .4s;
+      transition: all .3s;
     }
 
     #main #content::after{
@@ -63,13 +63,12 @@
       left: 50%;
       width: 0;
       height: 100%;
-      border: 3px solid #fff;
-      border-width: 3px 0;
+      border: 2px solid #fff;
+      border-width: 2px 0;
       overflow: hidden;
       visibility: hidden;
       box-sizing: border-box;
-      transition: all .4s;
-
+      transition: all .3s;
     }
 
     #main:hover #content::before {
@@ -91,10 +90,16 @@
 
     #main #content .teji{
       background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+      /*使用CSS3的渐变绘制图像，从左到右。
+      需要注意的是颜色是 0到49%的颜色组 = 50%到99%的颜色组，且最后100%的颜色要和开头0的颜色相等
+      这是为了能无缝衔接流光效果, 之后有说到*/
       color: transparent;
       -webkit-text-fill-color: transparent;
+      /*设置字体颜色：将字体颜色设置成透明，这样就能将背景图显示出来了*/
       -webkit-background-clip: text;
+      /*裁剪背景图：使用文字作为裁剪区域向外裁剪，此时文字颜色仍覆盖背景图*/
       -webkit-background-size: 200% 100%;
+      /*将背景图宽度拉长至两倍，之前设置background-image的两份相同的颜色组，就是为了能在此拉长后只显示一份颜色组，另外超出的半截颜色组用来实现流光效果*/
       background-size: 200% 100%;
       animation: streamer 5s infinite linear;
     }

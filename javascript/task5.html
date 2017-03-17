@@ -120,7 +120,7 @@
     var item = items[Index];
     var nextItem = item.nextElementSibling;
     result.insertBefore(nextItem, item);
-
+    // result.appendChild(item, items[0]);
   };
 
   /*function bubbleSort(items){
@@ -141,7 +141,7 @@
       for (i = 0; i < len; i++){
         for (j = 0, stop = len-i; j < stop-1; j++){
           if (items[j].value > items[j+1].value){
-            swap(items, j)
+            swap(items, j)  
           }
         }
       }

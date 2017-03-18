@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts No.5 - 动态数据</title>
+  <style type="text/css">
+    #main{
+      height: 600px;
+      width: 800px;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+<div id="main"></div>
+<script type="text/javascript" src="script/jquery.min.js"></script>
+<script type="text/javascript" src="script/echarts.min.js"></script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('main'));
+  myChart.showLoading();
+
+  function formatterData(kdata, index) {
+    var categoryData = [];
+    var values = [];
+    var volumns = [];
+    var pattern = /(\d{4})(\d{2})(\d{2})/;
+    for(var i = index-30, len = index; i < len; i++){
+      var a = kdata[i].Date;
+      var newDate = a.replace(pattern, '$1-$2-$3');
+      categoryData.push(newDate);
+      values.push([kdata[i].Open,kdata[i].Close,kdata[i].Low,kdata[i].High]);
+      volumns.push(kdata[i].Volume);
+    }
+    return {
+        categoryData: categoryData,
+        values: values,
+        volumns: volumns
+    };
+  }
+
+  $.get('data/kdata.json', function (kdata) {
+    var data = formatterData(kdata);
+    myChart.hideLoading();
+
+    var option = {
+              backgroundColor: '#fff',
+              animation: false,
+              title: {
+                text: '股票数据'
+              },
+              legend: {
+                  data: ['日k', '成交量'],
+                  top: 60
+              },
+              tooltip: {
+                  trigger: 'axis',
+                  axisPointer: {
+                      type: 'line'
+                  }
+              },
+              grid: [
+                  {
+                      left: '10%',
+                      right: '8%',
+                      height: '50%'
+                  },
+                  {
+                      left: '10%',
+                      right: '8%',
+                      top: '63%',
+                      height: '16%'
+                  }
+              ],
+              xAxis: [
+                  {
+                      type: 'category',
+                      data: data.categoryData,
+                      scale: true,
+                      boundaryGap : false,
+                      axisLine: {onZero: false},
+                      splitLine: {show: false},
+                      splitNumber: 20,
+                      min: 'dataMin',
+                      max: 'dataMax'
+                  },
+                  {
+                      type: 'category',
+                      gridIndex: 1,
+                      data: data.categoryData,
+                      scale: true,
+                      boundaryGap : false,
+                      axisLine: {onZero: false},
+                      axisTick: {show: false},
+                      splitLine: {show: false},
+                      axisLabel: {show: false},
+                      splitNumber: 20,
+                      min: 'dataMin',
+                      max: 'dataMax'
+                  }
+              ],
+              yAxis: [
+                  {
+                      scale: true,
+                      splitArea: {
+                          show: true
+                      }
+                  },
+                  {
+                      scale: true,
+                      gridIndex: 1,
+                      splitNumber: 2,
+                      axisLabel: {show: false},
+                      axisLine: {show: false},
+                      axisTick: {show: false},
+                      splitLine: {show: false}
+                  }
+              ],
+              series: [
+              {
+                  name: '日k',
+                  type: 'candlestick',
+                  data: data.values,
+                  itemStyle: {
+                      normal: {
+                          borderColor: null,
+                          borderColor0: null
+                      }
+                  },
+                  tooltip: {
+                      formatter: function (param) {
+                          var param = param[0];
+                          return [
+                              'Date: ' + param.name + '<hr size=1 style="margin: 3px 0">',
+                              'Open: ' + param.data[0] + '<br/>',
+                              'Close: ' + param.data[1] + '<br/>',
+                              'Lowest: ' + param.data[2] + '<br/>',
+                              'Highest: ' + param.data[3] + '<br/>'
+                          ].join('');
+                      }
+                  }
+              },
+              {
+                name: '成交量',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: data.volumns
+              }
+              ]
+            }
+
+    var index = 30;
+    setInterval(function () {
+        var data = formatterData(kdata, index);
+        myChart.setOption({
+            xAxis: {
+                type: 'category',
+                data: data.categoryData,
+            },
+            series: [{
+                name: '日k',
+                data: data.values,
+            },
+            {
+                name: '成交量',
+                data: data.volumns
+            }
+
+            ]
+        });
+        index = index+1;
+        console.log(index)
+    }, 500);
+
+    myChart.setOption(option);
+  });
+
+</script>
+</body>
+</html>

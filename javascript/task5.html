@@ -53,14 +53,14 @@
 <script type="text/javascript">
 
   var result = document.getElementById("content");
-  var nodeList = result.childNodes;
+  var nodeList = result.children;
   var inputn = document.getElementById("ipt");
   var list = [];
 
   /// 转换成数组
   function getItems() {
-    for(var i = 0, len = result.childNodes.length; i < len;  i++){
-      list.push(parseInt(result.childNodes[i].innerHTML));
+    for(var i = 0, len = result.children.length; i < len;  i++){
+      list.push(parseInt(result.children[i].innerHTML));
     }
     return list;
   }
@@ -93,20 +93,20 @@
   
   function leftIn() {
     var node = getVal();
-    result.insertBefore(node, result.childNodes[0]);
+    result.insertBefore(node, result.children[0]);
     inputn.value = '';
     inputn.focus();
   }
 
   function rightIn() {
     var node = getVal();
-    result.appendChild(node, result.childNodes[0]);
+    result.appendChild(node, result.children[0]);
     inputn.value = '';
     inputn.focus();
   }
 
   function leftOut() {
-    var node = result.childNodes[0];
+    var node = result.children[0];
     result.removeChild(node);
   }
 

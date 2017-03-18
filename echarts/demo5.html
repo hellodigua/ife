@@ -150,7 +150,7 @@
             }
 
     var index = 30;
-    setInterval(function () {
+    var _interval = setInterval(function () {
         var data = formatterData(kdata, index);
         myChart.setOption({
             xAxis: {
@@ -169,7 +169,9 @@
             ]
         });
         index = index+1;
-        console.log(index)
+        if(index == kdata.length){
+          clearInterval(_interval);
+        }
     }, 500);
 
     myChart.setOption(option);

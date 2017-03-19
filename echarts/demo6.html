@@ -70,10 +70,23 @@
                             formatter: '{b}'
                         }
                     },
+                    focusNodeAdjacency: true,
                     lineStyle: {
                         normal: {
                             color: 'source',
                             curveness: 0.3
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: function(params) {
+                                var colorList = [
+                                  '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B','#FE8463','#9BCA63','#FAD860','#F3A43B'
+                                ];
+                                var str = params.dataIndex;
+                                var a = str%10;
+                                return colorList[a]
+                            }
                         }
                     }
                 }

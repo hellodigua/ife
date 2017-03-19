@@ -165,12 +165,11 @@
                 name: '成交量',
                 data: data.volumns
             }
-
             ]
         });
         index = index+1;
         if(index == kdata.length){
-          clearInterval(_interval);
+          index = 30;
         }
     }, 500);
 

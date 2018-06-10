@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random</title>
+</head>
+<body>
+<p>请看控制台</p>
+<script type="text/javascript">
+  var list = ['一', '二', '三', '四', '五', '六', '日'];
+  var result = random(0, list.length - 1)
+  console.log(list[result])
+  function random(min, max){
+    var range = max - min;
+    var rand = Math.random();
+    var num = min + Math.round(rand * range);
+    return num
+  }
+ </script>
+</body>
+</html>
